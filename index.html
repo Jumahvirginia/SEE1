@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎉 Fun Calculator! 🎉</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #f0f8ff;
+            text-align: center;
+            padding: 20px;
+        }
+        .calculator {
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 255, 0.1);
+            padding: 30px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #ff6b6b;
+            margin-bottom: 30px;
+        }
+        input {
+            padding: 12px;
+            margin: 10px;
+            border: 2px solid #74b9ff;
+            border-radius: 10px;
+            font-size: 16px;
+            width: 80%;
+        }
+        button {
+            background-color: #74b9ff;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            margin: 15px;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        button:hover {
+            background-color: #0984e3;
+            transform: scale(1.05);
+        }
+        .results {
+            margin-top: 30px;
+            background-color: #dfe6e9;
+            padding: 20px;
+            border-radius: 10px;
+            display: none;
+        }
+        .emoji {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h1>🎉 Fun Calculator! 🎉</h1>
+        <p>Let's add, subtract, multiply, and divide like a boss! 😎</p>
+        
+        <input type="number" id="num1" placeholder="Enter first number ✨" step="any">
+        <input type="number" id="num2" placeholder="Enter second number 🧙‍♂️" step="any">
+        
+        <div>
+            <button onclick="calculate()">Calculate All! 🚀</button>
+        </div>
+        
+        <div id="results" class="results">
+            <h2>Your Results 🎊</h2>
+            <p><span class="emoji">➕</span> Sum: <span id="sum"></span></p>
+            <p><span class="emoji">➖</span> Difference: <span id="difference"></span></p>
+            <p><span class="emoji">✖️</span> Product: <span id="product"></span></p>
+            <p><span class="emoji">➗</span> Quotient: <span id="quotient"></span></p>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            // Get the values from input fields
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            
+            // Calculate results
+            const sum = num1 + num2;
+            const difference = num1 - num2;
+            const product = num1 * num2;
+            const quotient = num2 !== 0 ? num1 / num2 : "∞ (No dividing by zero! 😅)";
+            
+            // Display results
+            document.getElementById('sum').textContent = sum;
+            document.getElementById('difference').textContent = difference;
+            document.getElementById('product').textContent = product;
+            document.getElementById('quotient').textContent = quotient;
+            
+            // Show results section
+            document.getElementById('results').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
